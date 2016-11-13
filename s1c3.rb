@@ -18,4 +18,12 @@ class Hex
 end
 
 if __FILE__ == $0
+  m = 0x1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736
+  h = Hex.new(m)
+  for i in 0..224
+    secret = h.rot(i).decode
+    if secret.ascii_only?
+      puts "#{i} : #{secret}"
+    end
+  end
 end
